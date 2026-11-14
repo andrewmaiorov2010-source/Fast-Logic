@@ -22,11 +22,11 @@ The default multipliers are 5×. Vanilla instruction rates are 2, 8, and 25 inst
 
 ### In-game Mod Browser
 
-This repository is listed in the automatic Mindustry mod catalog. Open **Mods → Mod Browser** and search for **Fast Logic** or **логика**. The catalog refreshes automatically every few hours.
+The automatic Mindustry mod catalog lists this mod as **Fast Logic — Processor Speed**. Open **Mods → Mod Browser** and search for **Fast Logic**, **logic**, **processor**, or **speed**. The catalog refreshes automatically every few hours.
 
 ### JAR
 
-1. Open [Releases](https://github.com/andrewmaiorov2010-source/Fast-Logic/releases/latest) and download `Fast-Logic-1.3.1.jar`.
+1. Open [Releases](https://github.com/andrewmaiorov2010-source/Fast-Logic/releases/latest) and download `Fast-Logic-1.3.2.jar`.
 2. In Mindustry, choose **Mods → Import mod → Import file**, select the JAR, and restart the game.
 3. Open **Settings → Fast Logic** (Russian: **Настройки → Fast Logic — настройки процессоров**).
 
@@ -58,10 +58,11 @@ Install JDK 17 and obtain the official Mindustry 160.7 desktop JAR. Run PowerShe
 .\build.ps1 -MindustryJar 'C:\path\to\Mindustry.jar'
 ```
 
-The script creates `build/Fast-Logic-1.3.1.jar`. It does not launch Mindustry or bundle the game libraries.
+The script creates `build/Fast-Logic-1.3.2.jar`. It does not launch Mindustry or bundle the game libraries.
 
 ## Versions
 
+- **v1.3.2 — Fast Logic — Processor Speed:** English display name in catalog and JAR metadata; no gameplay or settings changes.
 - **v1.3.1 — Fast Logic:** catalog metadata and project branding; keeps the original internal mod ID and settings.
 - **v1.3.0 — LogicSpeedFive:** adds documented rate and setting behavior.
 

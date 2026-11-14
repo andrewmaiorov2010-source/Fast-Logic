@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.3.2 — Fast Logic — Processor Speed
+
+- Changed the displayed mod name to English in catalog and packaged metadata.
+- Bumped the patch version so installed JARs can receive the updated display name.
+- No gameplay code or settings changed.
+
 ## v1.3.1 — Fast Logic
 
 - Rebranded the public repository and setting category.
@@ -11,3 +17,4 @@
 
 - Added independent processor toggles and 1×–15× rate multipliers.
 - Kept wait duration and game time unchanged.
+

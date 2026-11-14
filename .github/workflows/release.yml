@@ -10,7 +10,7 @@ on:
         description: Release tag to create
         required: true
         type: string
-        default: v1.3.1
+        default: v1.3.2
 
 permissions:
   contents: write
@@ -36,13 +36,13 @@ jobs:
           javac --release 17 -d build/check src/main/java/ru/codex/mindustry/logicspeedfive/RatePolicy.java src/test/java/ru/codex/mindustry/logicspeedfive/RatePolicyCheck.java
           java -cp build/check ru.codex.mindustry.logicspeedfive.RatePolicyCheck
       - name: Package source archive
-        run: git archive --format=zip --prefix=Fast-Logic-1.3.1/ --output=Fast-Logic-1.3.1-source.zip "$GITHUB_SHA"
+        run: git archive --format=zip --prefix=Fast-Logic-1.3.2/ --output=Fast-Logic-1.3.2-source.zip "$GITHUB_SHA"
       - uses: actions/upload-artifact@v4
         with:
-          name: Fast-Logic-1.3.1
+          name: Fast-Logic-1.3.2
           path: |
-            build/Fast-Logic-1.3.1.jar
-            Fast-Logic-1.3.1-source.zip
+            build/Fast-Logic-1.3.2.jar
+            Fast-Logic-1.3.2-source.zip
           if-no-files-found: error
       - name: Publish Mindustry v8 release
         if: github.event_name == 'workflow_dispatch'
@@ -51,5 +51,5 @@ jobs:
           RELEASE_TAG: ${{ inputs.tag }}
         run: |
           test "$GITHUB_REF" = "refs/heads/main"
-          test "$RELEASE_TAG" = "v1.3.1"
-          gh release create "$RELEASE_TAG" --target "$GITHUB_SHA" --title "Fast Logic v1.3.1 [v160]" --notes "Fast Logic branding and catalog metadata. The original internal mod ID and saved settings are retained." build/Fast-Logic-1.3.1.jar Fast-Logic-1.3.1-source.zip
+          test "$RELEASE_TAG" = "v1.3.2"
+          gh release create "$RELEASE_TAG" --target "$GITHUB_SHA" --title "Fast Logic v1.3.2 [v160]" --notes "Fast Logic branding and catalog metadata. The original internal mod ID and saved settings are retained." build/Fast-Logic-1.3.2.jar Fast-Logic-1.3.2-source.zip
