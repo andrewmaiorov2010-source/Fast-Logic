@@ -22,7 +22,7 @@ The default multipliers are 5×. Vanilla instruction rates are 2, 8, and 25 inst
 
 ### In-game Mod Browser
 
-Once the automatic catalog includes the repository, open **Mods → Mod Browser** and search for **Fast Logic** or **логика**. The catalog refreshes automatically every few hours; until it appears there, use the release download below.
+This repository is listed in the automatic Mindustry mod catalog. Open **Mods → Mod Browser** and search for **Fast Logic** or **логика**. The catalog refreshes automatically every few hours.
 
 ### JAR
 
