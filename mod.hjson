@@ -3,6 +3,22 @@ displayName: "Fast Logic — Processor Speed"
 author: TTERARUAA
 main: ru.codex.mindustry.logicspeedfive.LogicSpeedFive
 version: "1.3.2"
-description: "Speeds up vanilla Micro, Logic, and Hyper Processors with independent saved 1×–15× multipliers."
+description: '''
+English
+
+Speeds up vanilla Micro, Logic, and Hyper Processors with independently configurable speed multipliers from 1× to 15×.
+
+Enable or disable acceleration for each processor type, adjust speeds in the mod settings, and keep your preferences saved between sessions.
+
+The wait instruction and game time are not accelerated.
+
+Русский
+
+Ускоряет стандартные микро-, логические и гиперпроцессоры в 1–15 раз.
+
+Можно отдельно включать и отключать ускорение каждого типа процессоров, настраивать множители скорости и сохранять выбранные параметры между запусками игры.
+
+Команда wait и игровое время не ускоряются.
+'''
 minGameVersion: 160
 java: true
