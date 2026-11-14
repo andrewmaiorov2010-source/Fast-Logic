@@ -7,7 +7,7 @@ $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $buildRoot = Join-Path $projectRoot 'build'
 $classesDir = Join-Path $buildRoot 'classes'
-$jarPath = Join-Path $buildRoot 'LogicSpeedFive-1.3.0.jar'
+$jarPath = Join-Path $buildRoot 'Fast-Logic-1.3.1.jar'
 
 if (-not (Test-Path -LiteralPath $MindustryJar -PathType Leaf)) {
     throw "Mindustry JAR not found: $MindustryJar"
@@ -21,6 +21,7 @@ $sources = Get-ChildItem -LiteralPath (Join-Path $projectRoot 'src\main\java') -
 javac --release 17 -classpath $MindustryJar -d $classesDir $sources
 if ($LASTEXITCODE -ne 0) { throw "javac failed with exit code $LASTEXITCODE" }
 
+Copy-Item -LiteralPath (Join-Path $projectRoot 'mod.hjson') -Destination $classesDir
 Copy-Item -LiteralPath (Join-Path $projectRoot 'plugin.hjson') -Destination $classesDir
 $bundlesDir = Join-Path $projectRoot 'bundles'
 if (Test-Path -LiteralPath $bundlesDir) {

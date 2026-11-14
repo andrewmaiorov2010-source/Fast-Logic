@@ -1,109 +1,72 @@
-# LogicSpeedFive
+# Fast Logic
 
-[![Latest release](https://img.shields.io/github/v/release/andrewmaiorov2010-source/LogicSpeedFive?display_name=tag)](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/latest)
+[![Latest release](https://img.shields.io/github/v/release/andrewmaiorov2010-source/Fast-Logic?display_name=tag)](https://github.com/andrewmaiorov2010-source/Fast-Logic/releases/latest)
+![Mindustry 160.7](https://img.shields.io/badge/Mindustry-160.7-orange)
+![Java 17](https://img.shields.io/badge/Java-17-blue)
 
-**A Mindustry 160.7 Java plugin that changes the instruction rate of the vanilla Micro, Logic, and Hyper Processors.**
+[Русская версия](docs/README.ru.md) · [Releases](https://github.com/andrewmaiorov2010-source/Fast-Logic/releases) · [Issues](https://github.com/andrewmaiorov2010-source/Fast-Logic/issues)
+
+**Fast Logic** is a Java plugin for Mindustry 160.7. It changes the instruction rate of the vanilla Micro, Logic, and Hyper Processors.
 
 ## Features
 
-- One flat settings page with exactly four toggles and three speed sliders; no expandable processor sections.
-- English and Russian labels and tooltips. Other game languages fall back to English.
-- One overall acceleration toggle and independent per-processor toggles.
-- Integer multipliers from **1× to 15×**, defaulting to **5×**.
-- Settings persist in Mindustry. Changes apply to processor blocks and existing processors, and are reapplied after a world loads.
+- Independent enable switches and integer multipliers from **1× to 15×** for each processor.
+- One master switch controls all three processor types.
+- Settings are saved by Mindustry and survive mod updates.
+- English and Russian setting labels.
 - The wait instruction duration and game time are unchanged.
 
-Vanilla instruction rates are 2, 8, and 25 instructions per tick for Micro, Logic, and Hyper Processors. The multiplier affects only the selected processor's instruction rate.
-
-## Requirements and verification
-
-The plugin targets **Mindustry 160.7**. Version 1.3.0 was compiled against the local Mindustry 160.7 desktop API JAR; its rate policy and localization resources were checked statically. **The game was not launched; in-game testing remains for the user.** Multiplayer with vanilla clients is untested.
+The default multipliers are 5×. Vanilla instruction rates are 2, 8, and 25 instructions per tick for Micro, Logic, and Hyper Processors.
 
 ## Install
 
-1. Download [LogicSpeedFive-1.3.0.jar](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/download/v1.3.0/LogicSpeedFive-1.3.0.jar).
-2. Put the JAR in Mindustry's mods folder.
-3. Start or restart Mindustry and open **Settings → Logic Speed Five** (Russian: **Настройки → Скорость процессоров**).
+### In-game Mod Browser
 
-When upgrading, replace the older LogicSpeedFive JAR with the new one.
+Once the automatic catalog includes the repository, open **Mods → Mod Browser** and search for **Fast Logic** or **логика**. The catalog refreshes automatically every few hours; until it appears there, use the release download below.
+
+### JAR
+
+1. Open [Releases](https://github.com/andrewmaiorov2010-source/Fast-Logic/releases/latest) and download `Fast-Logic-1.3.1.jar`.
+2. In Mindustry, choose **Mods → Import mod → Import file**, select the JAR, and restart the game.
+3. Open **Settings → Fast Logic** (Russian: **Настройки → Fast Logic — настройки процессоров**).
+
+When replacing the previous LogicSpeedFive JAR manually, remove or replace only that old JAR before importing this one. Mindustry preference keys and the plugin's `logicspeedfive.*` setting keys remain unchanged, so your saved multipliers and switches are retained.
 
 ## Settings
 
 | Setting | Default | Effect |
 | --- | --- | --- |
-| Enable processor acceleration | On | Master switch for all processor types |
-| Enable micro processor acceleration | On | Toggle Micro Processor acceleration |
-| Micro processor speed | 5× | 1×–15×; vanilla rate: 2 instructions/tick |
-| Enable logic processor acceleration | On | Toggle Logic Processor acceleration |
-| Logic processor speed | 5× | 1×–15×; vanilla rate: 8 instructions/tick |
-| Enable hyper processor acceleration | On | Toggle Hyper Processor acceleration |
-| Hyper processor speed | 5× | 1×–15×; vanilla rate: 25 instructions/tick |
+| Master acceleration | On | Enables or disables all processor acceleration |
+| Micro Processor toggle and speed | On, 5× | 1×–15×; vanilla rate: 2 instructions/tick |
+| Logic Processor toggle and speed | On, 5× | 1×–15×; vanilla rate: 8 instructions/tick |
+| Hyper Processor toggle and speed | On, 5× | 1×–15×; vanilla rate: 25 instructions/tick |
 
-A per-processor toggle works with the master switch. Turning either one off restores that type to its vanilla rate. A multiplier of 1× also gives the vanilla rate.
+Turning off either the master switch or a processor's own switch restores that processor to its vanilla rate. A multiplier of 1× is also the vanilla rate.
+
+## Compatibility and checks
+
+- Target: **Mindustry 160.7**, Java 17.
+- The plugin keeps its original internal ID (`logic-speed-five`), Java package, class name, and saved preference keys to avoid creating a separate mod identity.
+- The release workflow compiles against the official Mindustry 160.7 desktop JAR and runs a standalone rate-policy check. It does not launch Mindustry. This release has not received an in-game test by the publisher.
+- No multiplayer compatibility claim is made.
 
 ## Build from source
 
-Building requires **JDK 17** and a local Mindustry 160.7 desktop JAR. Run **.\build.ps1 -MindustryJar 'C:\path\to\Mindustry-160.7.jar'**.
+Install JDK 17 and obtain the official Mindustry 160.7 desktop JAR. Run PowerShell:
 
-The script creates build/LogicSpeedFive-1.3.0.jar and does not launch Mindustry. The source archive includes a standalone rate-policy check under src/test; it is not an in-game integration test.
+```powershell
+.\build.ps1 -MindustryJar 'C:\path\to\Mindustry.jar'
+```
 
-## Downloads
+The script creates `build/Fast-Logic-1.3.1.jar`. It does not launch Mindustry or bundle the game libraries.
 
-- [Release v1.3.0](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/tag/v1.3.0)
-- [Installable JAR](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/download/v1.3.0/LogicSpeedFive-1.3.0.jar)
-- [Source archive](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/download/v1.3.0/LogicSpeedFive-1.3.0-source.zip)
-- [Previous release v1.2.0](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/tag/v1.2.0)
+## Versions
 
-## Русский
+- **v1.3.1 — Fast Logic:** catalog metadata and project branding; keeps the original internal mod ID and settings.
+- **v1.3.0 — LogicSpeedFive:** adds documented rate and setting behavior.
 
-**LogicSpeedFive — Java-плагин для Mindustry 160.7, который меняет частоту исполнения инструкций стандартных Micro, Logic и Hyper Processor.**
+## License
 
-### Возможности
+No license file is present for this project. The code is not licensed for reuse or redistribution by this repository; ask the owner before using it. The Mindustry API JAR is used only as a compile dependency and is not included in the mod.
 
-- Одна плоская страница настроек: ровно четыре переключателя и три ползунка, без раскрываемых секций.
-- Подписи и подсказки на английском и русском языках; для остальных языков используется английский.
-- Общий переключатель ускорения и независимые настройки каждого типа процессора.
-- Целочисленный множитель от **1× до 15×**, по умолчанию — **5×**.
-- Настройки сохраняются в Mindustry. Изменения применяются к блокам и уже размещённым процессорам, а также после загрузки мира.
-- Инструкция wait и игровое время не ускоряются.
-
-Стандартные частоты — 2, 8 и 25 инструкций за тик для Micro, Logic и Hyper Processor. Множитель меняет только частоту выбранного процессора.
-
-### Требования и проверка
-
-Целевая версия — **Mindustry 160.7**. Версия 1.3.0 собрана против локального desktop API JAR Mindustry 160.7; правила расчёта скорости и ресурсы локализации проверены статически. **Игра не запускалась; игровое тестирование остаётся за пользователем.** Мультиплеер с vanilla-клиентами не проверялся.
-
-### Установка
-
-1. Скачайте [LogicSpeedFive-1.3.0.jar](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/download/v1.3.0/LogicSpeedFive-1.3.0.jar).
-2. Поместите JAR в папку mods Mindustry.
-3. Запустите или перезапустите игру и откройте **Настройки → Скорость процессоров**.
-
-При обновлении замените старый JAR LogicSpeedFive новой версией.
-
-### Параметры
-
-| Параметр | По умолчанию | Действие |
-| --- | --- | --- |
-| Включить ускорение процессоров | Включено | Общий переключатель |
-| Ускорять микропроцессор | Включено | Переключатель Micro Processor |
-| Скорость микропроцессора | 5× | 1×–15×; стандартно 2 инструкции/тик |
-| Ускорять логический процессор | Включено | Переключатель Logic Processor |
-| Скорость логического процессора | 5× | 1×–15×; стандартно 8 инструкций/тик |
-| Ускорять гиперпроцессор | Включено | Переключатель Hyper Processor |
-| Скорость гиперпроцессора | 5× | 1×–15×; стандартно 25 инструкций/тик |
-
-Индивидуальный переключатель работает вместе с общим. Если отключить один из них, процессор этого типа вернётся к стандартной частоте. Множитель 1× также соответствует стандартной частоте.
-
-### Сборка исходников
-
-Нужны **JDK 17** и локальный desktop JAR Mindustry 160.7. Выполните **.\build.ps1 -MindustryJar 'C:\путь\к\Mindustry-160.7.jar'**.
-
-Скрипт создаёт build/LogicSpeedFive-1.3.0.jar и не запускает игру. В архив исходников входит отдельная проверка правил расчёта скорости в src/test; это не интеграционный тест Mindustry.
-
-### Загрузки
-
-- [Релиз v1.3.0](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/tag/v1.3.0)
-- [JAR для установки](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/download/v1.3.0/LogicSpeedFive-1.3.0.jar)
-- [Архив исходников](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/download/v1.3.0/LogicSpeedFive-1.3.0-source.zip)
-- [Предыдущий релиз v1.2.0](https://github.com/andrewmaiorov2010-source/LogicSpeedFive/releases/tag/v1.2.0)
+[Source](https://github.com/andrewmaiorov2010-source/Fast-Logic/tree/main) · [Issues](https://github.com/andrewmaiorov2010-source/Fast-Logic/issues) · [Releases](https://github.com/andrewmaiorov2010-source/Fast-Logic/releases)
